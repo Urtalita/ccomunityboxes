@@ -27,6 +27,7 @@ public class NBTStonecutterRecipe extends StonecutterRecipe {
         if (inputStack.hasTag()) {
             resultStack.setTag(inputStack.getTag().copy());
         }
+
         return resultStack;
     }
 

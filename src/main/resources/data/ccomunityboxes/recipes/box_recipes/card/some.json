@@ -1,0 +1,6 @@
+{
+"type": "ccomunityboxes:nbt_stonecutting",
+"ingredient":{"item": "ccomunityboxes:card"},
+"result": "ccomunityboxes:some",
+"count": 1
+}

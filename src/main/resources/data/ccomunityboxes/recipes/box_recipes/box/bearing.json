@@ -1,0 +1,6 @@
+{
+"type": "ccomunityboxes:nbt_stonecutting",
+"ingredient":{"item": "ccomunityboxes:box"},
+"result": "ccomunityboxes:bearing",
+"count": 1
+}

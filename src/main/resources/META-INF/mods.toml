@@ -63,7 +63,7 @@ ordering = "NONE"
 side = "BOTH"
 logger="debug"
 
-[[dependencies.${modid}]]
+[[dependencies.${"ccomunityboxes"}]]
 modId="create"
 mandatory=true
 versionRange="[6.0.4,6.1.0)"

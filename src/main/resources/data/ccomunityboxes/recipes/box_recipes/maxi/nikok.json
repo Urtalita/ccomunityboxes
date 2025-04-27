@@ -1,0 +1,6 @@
+{
+"type": "ccomunityboxes:nbt_stonecutting",
+"ingredient":{"item": "ccomunityboxes:maxi"},
+"result": "ccomunityboxes:nikok",
+"count": 1
+}

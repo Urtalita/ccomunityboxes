@@ -100,7 +100,8 @@ public class Ccomunityboxes {
                 "portal",
                 "maxi",
                 "card",
-                "nikok"
+                "nikok",
+                "bearing"
         };
     }
 

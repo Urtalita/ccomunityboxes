@@ -1,0 +1,6 @@
+{
+"type": "ccomunityboxes:nbt_stonecutting",
+"ingredient":{"item": "create:cardboard_package_12x10"},
+"result": "ccomunityboxes:bearing",
+"count": 1
+}
