@@ -1,0 +1,6 @@
+{
+"type": "ccomunityboxes:nbt_stonecutting",
+"ingredient":{"item": "ccomunityboxes:tochn"},
+"result": "ccomunityboxes:tomat",
+"count": 1
+}

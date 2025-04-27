@@ -1,0 +1,6 @@
+{
+"type": "ccomunityboxes:nbt_stonecutting",
+"ingredient":{"item": "create:cardboard_package_10x8"},
+"result": "ccomunityboxes:pelme",
+"count": 1
+}

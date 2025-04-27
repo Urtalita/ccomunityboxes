@@ -1,0 +1,6 @@
+{
+"type": "ccomunityboxes:nbt_stonecutting",
+"ingredient":{"item": "ccomunityboxes:brass"},
+"result": "ccomunityboxes:breaze",
+"count": 1
+}
