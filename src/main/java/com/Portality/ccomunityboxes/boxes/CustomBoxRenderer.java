@@ -31,7 +31,17 @@ public class CustomBoxRenderer extends EntityRenderer<CustomBoxEntity> {
     @Override
     public void render(CustomBoxEntity entity, float yaw, float pt, PoseStack ms, MultiBufferSource buffer, int light) {
         if (!VisualizationManager.supportsVisualization(entity.level())) {
-            renderBox(entity, yaw, ms, buffer, light, BoxModels.BOXES.get(entity.model));
+            ItemStack box = entity.box;
+
+            if (box.isEmpty() || !PackageItem.isPackage(box))
+                box = AllBlocks.CARDBOARD_BLOCK.asStack();
+
+            String modelName = String.valueOf(ForgeRegistries.ITEMS.getKey(box.getItem()));
+            String[] words = modelName.split(":");
+            modelName = words[1];
+            PartialModel model = BoxModels.BOXES.get(modelName);
+
+            renderBox(entity, yaw, ms, buffer, light, model);
         }
         super.render(entity, yaw, pt, ms, buffer, light);
     }

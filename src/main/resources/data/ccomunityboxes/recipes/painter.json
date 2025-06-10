@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "p",
+    "m",
+    "c"
+  ],
+  "key": {
+    "m": {
+      "item": "create:andesite_casing"
+    },
+    "p": {
+      "item": "create:cardboard_block"
+    },
+    "c": {
+      "item": "minecraft:dried_kelp"
+    }
+  },
+  "result": {
+    "item": "ccomunityboxes:painter"
+  }
+}

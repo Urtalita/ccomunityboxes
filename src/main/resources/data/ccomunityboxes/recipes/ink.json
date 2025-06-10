@@ -1,0 +1,27 @@
+{
+  "type": "create:mixing",
+  "heatRequirement": "heated",
+  "ingredients": [
+    {
+      "item": "ccomunityboxes:roze_quartz_powder",
+      "count": 2
+    },
+    {
+      "item": "create:powdered_obsidian",
+      "count": 2
+    },
+    {
+      "item": "minecraft:slime_ball"
+    },
+    {
+      "amount": 200,
+      "fluid": "create:tea"
+    }
+  ],
+  "results": [
+    {
+      "amount": 500,
+      "fluid": "ccomunityboxes:ink_fluid"
+    }
+  ]
+}

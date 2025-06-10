@@ -1,11 +1,13 @@
 package com.Portality.ccomunityboxes.boxes;
 
+import com.Portality.ccomunityboxes.BoxModels;
 import com.Portality.ccomunityboxes.boxes.summonItems.SummonBoxItem;
 import com.simibubi.create.AllEntityTypes;
 import com.simibubi.create.Create;
 import com.simibubi.create.content.contraptions.AbstractContraptionEntity;
 import com.simibubi.create.content.logistics.box.PackageEntity;
 import com.simibubi.create.content.logistics.chute.ChuteBlock;
+import dev.engine_room.flywheel.lib.model.baked.PartialModel;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.FriendlyByteBuf;
@@ -25,7 +27,6 @@ public class CustomBoxEntity extends PackageEntity {
 
     public CustomBoxEntity(EntityType<?> entityTypeIn, Level worldIn) {
         super(entityTypeIn, worldIn);
-        this.model = "standard";
     }
 
     public CustomBoxEntity(EntityType<?> entityType, Level world, double x, double y, double z, String model) {
@@ -33,6 +34,10 @@ public class CustomBoxEntity extends PackageEntity {
         this.setPos(x, y, z);
         this.model = model;
         this.refreshDimensions();
+    }
+
+    public PartialModel getModel(){
+        return BoxModels.BOXES.get(model);
     }
 
     public static EntityType.Builder<?> build(EntityType.Builder<?> builder) {
@@ -72,7 +77,7 @@ public class CustomBoxEntity extends PackageEntity {
 
     @Override
     public void writeSpawnData(FriendlyByteBuf buffer) {
-        buffer.writeUtf(model != null ? model : "box"); // Записываем model в буфер
+        buffer.writeUtf(model != null ? model : "box");
         super.writeSpawnData(buffer);
     }
 

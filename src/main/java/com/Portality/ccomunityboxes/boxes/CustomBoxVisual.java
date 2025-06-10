@@ -2,6 +2,9 @@ package com.Portality.ccomunityboxes.boxes;
 
 import com.Portality.ccomunityboxes.BoxModels;
 import com.Portality.ccomunityboxes.Ccomunityboxes;
+import com.Portality.ccomunityboxes.boxes.summonItems.SummonBoxItem;
+import com.simibubi.create.AllBlocks;
+import com.simibubi.create.content.logistics.box.PackageItem;
 import dev.engine_room.flywheel.api.visualization.VisualizationContext;
 import dev.engine_room.flywheel.lib.instance.InstanceTypes;
 import dev.engine_room.flywheel.lib.instance.OrientedInstance;
@@ -11,7 +14,9 @@ import dev.engine_room.flywheel.lib.model.baked.PartialModel;
 import dev.engine_room.flywheel.lib.visual.AbstractEntityVisual;
 import dev.engine_room.flywheel.lib.visual.SimpleDynamicVisual;
 import net.minecraft.util.Mth;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.phys.Vec3;
+import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -19,17 +24,22 @@ import java.util.List;
 import java.util.Map;
 
 public class CustomBoxVisual extends AbstractEntityVisual<CustomBoxEntity> implements SimpleDynamicVisual {
-    public Map<String, TransformedInstance> instances = new HashMap<>();
+    public TransformedInstance instance;
 
     public CustomBoxVisual(VisualizationContext ctx, CustomBoxEntity entity, float partialTick) {
         super(ctx, entity, partialTick);
 
-        for(int i = 0; i < Ccomunityboxes.BOXES.length; i++){
-            PartialModel model = BoxModels.BOXES.get(Ccomunityboxes.BOXES[i]);
-            instances.put(Ccomunityboxes.BOXES[i] ,instancerProvider().instancer(InstanceTypes.TRANSFORMED, Models.partial(model))
-                    .createInstance());
-            instances.get(Ccomunityboxes.BOXES[i]).setVisible(false);
-        }
+        ItemStack box = entity.box;
+
+        if (box.isEmpty() || !PackageItem.isPackage(box))
+            box = AllBlocks.CARDBOARD_BLOCK.asStack();
+
+        String modelName = String.valueOf(ForgeRegistries.ITEMS.getKey(box.getItem()));
+        String[] words = modelName.split(":");
+        modelName = words[1];
+        PartialModel model = BoxModels.BOXES.get(modelName);
+        instance = instancerProvider().instancer(InstanceTypes.TRANSFORMED, Models.partial(model))
+                .createInstance();
 
         animate(partialTick);
     }
@@ -55,20 +65,15 @@ public class CustomBoxVisual extends AbstractEntityVisual<CustomBoxEntity> imple
         float yNudge = (((float) (randomBits >> 20 & 7L) + 0.5F) / 8.0F - 0.5F) * 0.004F;
         float zNudge = (((float) (randomBits >> 24 & 7L) + 0.5F) / 8.0F - 0.5F) * 0.004F;
 
-        if(entity.model != null){
-            instances.get(entity.model).setVisible(true);
-            instances.get(entity.model).setIdentityTransform()
+            instance.setIdentityTransform()
                     .translate(x - 0.5 + xNudge, y + yNudge, z - 0.5 + zNudge)
                     .rotateYCenteredDegrees(-yaw - 90)
                     .light(computePackedLight(partialTick))
                     .setChanged();
-        }
     }
 
     @Override
     protected void _delete() {
-        for(int i = 0; i < Ccomunityboxes.BOXES.length; i++){
-            instances.get(Ccomunityboxes.BOXES[i]).delete();
-        }
+        instance.delete();
     }
 }

@@ -1,46 +1,56 @@
 package com.Portality.ccomunityboxes.boxes.gen;
+import com.Portality.ccomunityboxes.Ccomunityboxes;
+import com.simibubi.create.foundation.utility.CreateLang;
 import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.packs.resources.Resource;
 import net.minecraft.server.packs.resources.ResourceManager;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.fml.loading.FMLEnvironment;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.packs.resources.ResourceManager;
 
+import java.io.File;
+import java.util.*;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 import java.util.ArrayList;
-import java.util.Collection;
+import java.util.stream.Collectors;
 
 public class JsonFileLister {
     private static final Logger LOGGER = LogManager.getLogger();
 
-    public static String[] getJsonFilesInDirectory(String modId, String directory) {
-        ArrayList<String> fileNames = new ArrayList<>();
+    @OnlyIn(Dist.CLIENT)
+    public static String[] getBlockTextureFiles() {
+        List<String> fileNames = new ArrayList<>();
+        String modId = Ccomunityboxes.MODID;
+
         ResourceManager resourceManager = Minecraft.getInstance().getResourceManager();
 
-        // Нормализация пути
-        String targetPath = (directory.endsWith("/") ? directory : directory + "/").toLowerCase();
-        String resourceNamespace = modId.toLowerCase();
+        String texturePath = "textures/block";
 
-        LOGGER.info("Searching in: {}:{}", resourceNamespace, targetPath);
+        Predicate<ResourceLocation> filter =
+                (resourceLocation) -> resourceLocation.getNamespace().equals(modId);
 
-        try {
-            // Получаем все ресурсы в неймспейсе мода
-            Collection<ResourceLocation> allResources = resourceManager.listResources(resourceNamespace, rl -> true).keySet();
-
-            for (ResourceLocation rl : allResources) {
-                String path = rl.getPath().toLowerCase();
-                LOGGER.debug("Checking: {}", path);
-
-                if (path.startsWith(targetPath) && path.endsWith(".png")) {
-                    String fileNameWithExt = path.substring(path.lastIndexOf('/') + 1);
-                    String fileName = fileNameWithExt.substring(0, fileNameWithExt.lastIndexOf('.'));
-                    LOGGER.info("Found file: {}", fileName);
-                    fileNames.add(fileName);
-                }
+        Map<ResourceLocation, Resource> resources = resourceManager.listResources(texturePath, filter);
+        resources.forEach((resourceLocation, resource) -> {
+            String[] pathParts = resourceLocation.getPath().split("/");
+            if (pathParts.length > 0) {
+                fileNames.add(pathParts[pathParts.length - 1].split("\\.")[0]);
             }
-        } catch (Exception e) {
-            LOGGER.error("Error listing resources", e);
-        }
+        });
 
-        LOGGER.info("Found {} files", fileNames.size());
         return fileNames.toArray(new String[0]);
+    }
+
+    // Обёртка для безопасного вызова на клиенте
+    public static String[] getBlockTextureFilesSafe() {
+        if (FMLEnvironment.dist == Dist.CLIENT) {
+            return getBlockTextureFiles();
+        }
+        return new String[]{};
     }
 }

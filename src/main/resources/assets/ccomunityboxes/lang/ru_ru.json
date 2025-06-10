@@ -1,0 +1,22 @@
+{
+  "block.ccomunityboxes.painter": "Жидкостный краситель",
+  "creativetab.box_tab": "Create: More Packages",
+
+  "ccomunityboxes.ponder.painting.header": "Жидкостный краситель",
+  "ccomunityboxes.ponder.painting.text_1": "Жидкостный краситель способен перекрашивать коробки",
+  "ccomunityboxes.ponder.painting.text_2": "Поставьте Дозатор сверху",
+  "ccomunityboxes.ponder.painting.text_3": "Подведите воду к дозатору",
+  "ccomunityboxes.ponder.painting.text_4": "Настройте фильтр красителя",
+  "ccomunityboxes.ponder.painting.text_5": "Без фильтра выход будет рандомным",
+
+  "ccomunityboxes.ponder.paintingrare.header": "Жидкостный краситель",
+  "ccomunityboxes.ponder.paintingrare.text_1": "Используйте краску вместо воды чтобы делать редкие коробки",
+  "ccomunityboxes.ponder.paintingrare.text_2": "Без фильтра на выходе будет случайная редкая коробка",
+
+  "item.ccomunityboxes.ink_bucket": "Ведро краски",
+  "item.ccomunityboxes.roze_quartz_powder": "Порошок розового кварца",
+
+  "fluid_type.ccomunityboxes.ink_fluid": "Обсидиановая краска",
+
+  "entity.ccomunityboxes.custom_package": "Картонная коробка"
+}
