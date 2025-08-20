@@ -1,0 +1,8 @@
+{
+"type": "minecraft:stonecutting",
+"ingredient": {
+"item": "ccomunityboxes:lime"},
+"result": {
+ "id": "create:cardboard_package_10x12"
+}
+}

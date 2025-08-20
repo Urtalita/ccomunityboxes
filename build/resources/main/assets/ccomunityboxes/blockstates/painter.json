@@ -1,0 +1,25 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "ccomunityboxes:block/painter"
+    },
+    "facing=south": {
+      "model": "ccomunityboxes:block/painter"
+    },
+    "facing=east": {
+      "model": "ccomunityboxes:block/painter",
+      "y": 90
+    },
+    "facing=west": {
+      "model": "ccomunityboxes:block/painter",
+      "y": 90
+    },
+    "facing=up": {
+      "model": "ccomunityboxes:block/painter_vertical"
+    },
+    "facing=down": {
+      "model": "ccomunityboxes:block/painter_vertical",
+      "x": 180
+    }
+  }
+}

@@ -1,0 +1,6 @@
+/give Dev ccomunityboxes:painter
+/time set day
+/effect give Dev minecraft:night_vision infinite
+/effect give Dev minecraft:night_vision infinite 1 false
+/effect give Dev minecraft:night_vision infinite 1 true
+/effect give Dev minecraft:night_vision infinite 0 true

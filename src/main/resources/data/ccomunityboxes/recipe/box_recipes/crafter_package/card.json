@@ -1,0 +1,8 @@
+{
+"type": "minecraft:stonecutting",
+"ingredient": {
+"item": "ccomunityboxes:crafter_package"},
+"result": {
+ "id": "ccomunityboxes:card"
+}
+}

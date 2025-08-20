@@ -1,0 +1,8 @@
+{
+"type": "minecraft:stonecutting",
+"ingredient": {
+"item": "ccomunityboxes:portal"},
+"result": {
+ "id": "ccomunityboxes:fox"
+}
+}

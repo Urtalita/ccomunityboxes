@@ -1,0 +1,8 @@
+{
+"type": "minecraft:stonecutting",
+"ingredient": {
+"item": "ccomunityboxes:nosome"},
+"result": {
+ "id": "create:cardboard_package_12x12"
+}
+}

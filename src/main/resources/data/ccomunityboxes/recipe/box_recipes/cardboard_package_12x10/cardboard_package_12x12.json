@@ -1,0 +1,8 @@
+{
+"type": "minecraft:stonecutting",
+"ingredient": {
+"item": "create:cardboard_package_12x10"},
+"result": {
+ "id": "create:cardboard_package_12x12"
+}
+}

@@ -1,0 +1,8 @@
+{
+"type": "minecraft:stonecutting",
+"ingredient": {
+"item": "ccomunityboxes:red"},
+"result": {
+ "id": "ccomunityboxes:maxi"
+}
+}

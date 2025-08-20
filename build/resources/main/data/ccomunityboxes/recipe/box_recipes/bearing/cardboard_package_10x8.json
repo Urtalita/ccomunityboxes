@@ -1,0 +1,8 @@
+{
+"type": "minecraft:stonecutting",
+"ingredient": {
+"item": "ccomunityboxes:bearing"},
+"result": {
+ "id": "create:cardboard_package_10x8"
+}
+}

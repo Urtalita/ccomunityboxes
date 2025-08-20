@@ -1,0 +1,21 @@
+{
+  "type": "create:crushing",
+  "ingredients": [
+    {
+      "item": "ccomunityboxes:roze_quartz_powder"
+    }
+  ],
+  "processing_time": 50,
+  "results": [
+    {
+      "chance": 0.9,
+      "id": "minecraft:redstone",
+      "count": 8
+    },
+    {
+      "chance": 0.1,
+      "id": "minecraft:quartz",
+      "count": 1
+    }
+  ]
+}

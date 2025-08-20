@@ -1,0 +1,8 @@
+{
+"type": "minecraft:stonecutting",
+"ingredient": {
+"item": "ccomunityboxes:slime"},
+"result": {
+ "id": "ccomunityboxes:nosome"
+}
+}
