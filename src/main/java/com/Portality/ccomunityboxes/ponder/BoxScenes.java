@@ -8,6 +8,7 @@ import net.createmod.ponder.api.scene.SceneBuilder;
 import net.createmod.ponder.api.scene.SceneBuildingUtil;
 import net.createmod.ponder.api.scene.Selection;
 import net.minecraft.core.Direction;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.RandomSource;
@@ -295,13 +296,13 @@ public class BoxScenes {
             return null;
         }
 
-        itemName = Ccomunityboxes.MODID + ":" + itemName;
-
-        ResourceLocation resLoc = ResourceLocation.tryParse(itemName);
+        ResourceLocation resLoc = ResourceLocation.tryParse(Ccomunityboxes.MODID + ":" + itemName);
         if (resLoc == null) {
             return null;
         }
 
         return new ItemStack(ForgeRegistries.ITEMS.getValue(resLoc));
     }
+
+
 }

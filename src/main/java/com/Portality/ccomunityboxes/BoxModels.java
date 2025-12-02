@@ -1,5 +1,7 @@
 package com.Portality.ccomunityboxes;
 
+import com.simibubi.create.AllPartialModels;
+import com.simibubi.create.content.logistics.box.PackageStyles;
 import dev.engine_room.flywheel.lib.model.baked.PartialModel;
 import net.minecraft.resources.ResourceLocation;
 
@@ -17,6 +19,10 @@ public class BoxModels {
     public static void register(){
         for(int i = 0; i < Ccomunityboxes.BOXES.length; i++){
             BOXES.put(Ccomunityboxes.BOXES[i], block(Ccomunityboxes.BOXES[i]));
+            ResourceLocation key = Ccomunityboxes.asResource(Ccomunityboxes.BOXES[i]);
+
+            AllPartialModels.PACKAGE_RIGGING.put(key, PartialModel.of(PackageStyles.STYLES.get(0).getRiggingModel()));
+            AllPartialModels.PACKAGES.put(key, block(Ccomunityboxes.BOXES[i]));
         }
     }
 }

@@ -65,7 +65,6 @@ public class Ccomunityboxes {
         BoxBlocks.register(modEventBus);
         BoxBlockEntity.register();
         BoxTab.register(modEventBus);
-        PonderIndex.addPlugin(new BoxPonderPlugin());
 
         commonSetup();
 
@@ -167,9 +166,7 @@ public class Ccomunityboxes {
 
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
-            // Some client setup code
-            LOGGER.info("HELLO FROM CLIENT SETUP");
-            LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
+            PonderIndex.addPlugin(new BoxPonderPlugin());
         }
     }
     public static ResourceLocation asResource(String path) {
